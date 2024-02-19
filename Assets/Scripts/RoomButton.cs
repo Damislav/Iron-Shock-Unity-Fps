@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using Photon.Realtime;
+
 public class RoomButton : MonoBehaviour
 {
   public TMP_Text buttonText;
@@ -14,7 +15,6 @@ public class RoomButton : MonoBehaviour
     info = inputInfo;
     buttonText.text = info.Name;
   }
-
 
   public void OpenRoom()
   {

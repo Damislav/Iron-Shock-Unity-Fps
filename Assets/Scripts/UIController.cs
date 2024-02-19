@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-
-
   public static UIController instance;
 
   private void Awake()
@@ -34,11 +32,6 @@ public class UIController : MonoBehaviour
 
   // public GameObject optionsScreen;
 
-  void Start()
-  {
-
-  }
-
   void Update()
   {
     if (Input.GetKeyDown(KeyCode.Escape))
@@ -49,8 +42,6 @@ public class UIController : MonoBehaviour
         Cursor.visible = true;
       }
     }
-
-
   }
 
   // public void ShowHideOptions()
