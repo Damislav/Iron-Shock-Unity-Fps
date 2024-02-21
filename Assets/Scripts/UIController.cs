@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour
   public TMP_Text killsText, deathsText;
 
   public GameObject leaderboard;
-  //   public LeaderboardPlayer leaderboardPlayerDisplay;
+  public LeaderboardPlayer leaderboardPlayerDisplay;
 
   public GameObject endScreen;
 

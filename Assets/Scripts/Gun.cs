@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
 
   private void Start()
   {
-    // muzzleFlash.SetActive(false);
+    muzzleFlash.SetActive(false);
   }
 
 }
