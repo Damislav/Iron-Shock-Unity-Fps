@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.Text.RegularExpressions;
+using Photon.Realtime;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void Start()
     {
 
-        // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
         cam = Camera.main;
 
@@ -300,8 +302,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            cam.transform.position = viewPoint.position;
-            cam.transform.rotation = viewPoint.rotation;
+            if (MatchManager.instance.state == MatchManager.GameState.Playing)
+            {
+                cam.transform.position = viewPoint.position;
+                cam.transform.rotation = viewPoint.rotation;
+            }
+            else
+            {
+                cam.transform.position = MatchManager.instance.mapCamPoint.position;
+                cam.transform.rotation = MatchManager.instance.mapCamPoint.rotation;
+            }
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class UIController : MonoBehaviour
 {
@@ -55,11 +56,11 @@ public class UIController : MonoBehaviour
   //     optionsScreen.SetActive(false);
   //   }
   // }
-  //   public void ReturnToMainMenu()
-  //   {
-  //     PhotonNetwork.AutomaticallySyncScene = false;
-  //     PhotonNetwork.LeaveRoom();
-  //   }
+  public void ReturnToMainMenu()
+  {
+    PhotonNetwork.AutomaticallySyncScene = false;
+    PhotonNetwork.LeaveRoom();
+  }
 
   public void QuitGame()
   {

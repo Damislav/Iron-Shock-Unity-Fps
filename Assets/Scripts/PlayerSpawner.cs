@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.Text.RegularExpressions;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -44,7 +44,6 @@ public class PlayerSpawner : MonoBehaviour
         {
             StartCoroutine(DieCo());
         }
-
     }
 
     public IEnumerator DieCo()
@@ -52,13 +51,18 @@ public class PlayerSpawner : MonoBehaviour
         PhotonNetwork.Instantiate(deathEffect.name, player.transform.position, Quaternion.identity);
 
         PhotonNetwork.Destroy(player);
+        player = null;
         UIController.instance.deathScreen.SetActive(true);
 
         yield return new WaitForSeconds(respawnTime);
 
         UIController.instance.deathScreen.SetActive(false);
 
-        SpawnPlayer();
+        if (MatchManager.instance.state == MatchManager.GameState.Playing && player == null)
+        {
+            SpawnPlayer();
+        }
+
     }
 
 }
